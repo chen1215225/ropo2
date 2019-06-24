@@ -1,0 +1,9 @@
+<service>
+    <id>Delai_Bees_Top200</id>
+    <name>Delai_Bees_Top200</name>
+    <description>Lineview定时调度任务，实现自动备注</description>
+    <env name="MYAPP_HOME" value="%BASE%"/>
+    <executable>java</executable>
+    <arguments>-Duser.timezone=Asia/Shanghai -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=prod -jar "%BASE%\bees-tops.jar"</arguments>
+    <logmode>rotate</logmode>
+</service>

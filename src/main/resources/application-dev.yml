@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework: INFO
+    com.delai.bees.tops: DEBUG
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+
+spring:
+  datasource:
+    driverClassName: org.hsqldb.jdbcDriver
+    url: jdbc:hsqldb:file:h2/testdb
+    username: sa
+    password: sa
+  data:
+    mongodb.host: 10.99.92.229
+    mongodb.port: 27017
+    mongodb.database: SignalDB
+    mongodb.prepare.maxConnectionIdleTime: 60000
+    mongodb.prepare.maxConnectionLifeTime: 0
+
+mybatis:
+  mapper-locations: classpath:com/delai/bees/tops/dao/mapper/*.xml, classpath:com/delai/bees/tops/dao/helper/*.xml
+  type-aliases-package: com.delai.bees.tops.entity,
+
+setting.swagger.enable: true
+setting.web.cors.enable: true
+setting.mybatis.paginator.dialect: com.github.miemiedev.mybatis.paginator.dialect.HSQLDialect

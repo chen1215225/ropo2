@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <!-- 连接器jar -->
+    <context id="MYSQLTestdb" defaultModelType="flat" targetRuntime="MyBatis3">
+
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="pagination" value="com.github.miemiedev.mybatis.paginator.domain.PageBounds"></property><!-- 自定义分页实现类 -->
+
+        <!--
+            自定义插件
+        -->
+        <plugin type="com.ipukr.elephant.mybatis.plugins.SerializablePlugin"></plugin>
+        <!--<plugin type="com.ipukr.elephant.mybatis.plugins.ToStringPlugin"></plugin>-->
+        <plugin type="com.ipukr.elephant.mybatis.plugins.ConditionPlugin"></plugin>
+
+        <plugin type="com.ipukr.elephant.mybatis.plugins.DeleteByIdsPlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.FindAllPlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.FindByIdsPlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.QueryPlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.ExamplePlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.SearchPlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.ExistPlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.CountPlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.IgsertPlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.UpsertPlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.UniquePlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.UniletePlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.ModelAppendPlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.QConditionPlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.SConditionPlugin"></plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.VirtualPrimaryKeyPlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"></plugin><!-- 重复生成不merge xml文件-->
+        <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin"></plugin><!--  dao下Mapper类，添加类注释@Mapper -->
+        <plugin type="com.ipukr.elephant.mybatis.plugins.GeneratedEnumerationHandlerJavaFilePlugin">
+            <property name="Override" value="false"/><!-- 重复生成时，如果不覆盖枚举类，value="false" -->
+        </plugin>
+        <plugin type="com.ipukr.elephant.mybatis.plugins.LombokPlugin"/>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.110.77.170:3306/bees_tops"
+                        userId="root"
+                        password="root123!">
+        </jdbcConnection>
+
+
+        <javaModelGenerator targetPackage="com.delai.bees.tops.entity" targetProject="MAVEN">
+            <property name="enableSubPackages" value="false"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.delai.bees.tops.dao.mapper" targetProject="MAVEN">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.delai.bees.tops.dao" targetProject="TARGET"><!-- 重复生成如果不覆盖dao下Mapper类，可设置 targetProject="TARGET" -->
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+
+        <table tableName="Bit_Signal_Config" domainObjectName="BitSignalConfig"
+               delimitIdentifiers="true" delimitAllColumns="true"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--自定义插件配置：Java数据接口生成 [ unque(username);] 方法，多参数使用","分割参数-->
+            <property name="Unique" value="Key,Signal"></property>
+            <property name="Models" value="com.delai.bees.tops.document.SignalConfig:signal"></property>
+            <generatedKey column="Id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="Bit_Analog_Signals" domainObjectName="BitAnalogSignals"
+               delimitIdentifiers="true" delimitAllColumns="true"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--自定义插件配置：Java数据接口生成 [ unque(username);] 方法，多参数使用","分割参数-->
+        </table>
+
+
+        <table tableName="Line_Product" domainObjectName="LineProduct"
+               delimitIdentifiers="true" delimitAllColumns="true"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--自定义插件配置：Java数据接口生成 [ unque(username);] 方法，多参数使用","分割参数-->
+            <generatedKey column="Id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+    </context>
+
+</generatorConfiguration>

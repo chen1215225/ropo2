@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+    </parent>
+
+    <groupId>com.delai.bees</groupId>
+    <artifactId>bees-tops</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>bees-tops</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.example.com</url>
+
+    <properties>
+        <elephant.version>2.3.0</elephant.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <!-- 测试框架 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <!-- Spring Boot Web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+
+        <!-- 数据库 & 连接池 -->
+        <!-- MMSQL
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>7.0.0.jre8</version>
+            </dependency>
+        -->
+
+        <!-- MySQL -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.35</version>
+        </dependency>
+
+        <!-- 内存数据库hsqldb -->
+        <!--<dependency>-->
+            <!--<groupId>org.hsqldb</groupId>-->
+            <!--<artifactId>hsqldb</artifactId>-->
+            <!--<scope>runtime</scope>-->
+        <!--</dependency>-->
+
+        <!-- mybatis映射框架&插件 -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.miemiedev</groupId>
+            <artifactId>mybatis-paginator</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+
+        <!--mongodb-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+
+        
+        <dependency>
+            <groupId>com.ipukr.elephant</groupId>
+            <artifactId>elephant-utils</artifactId>
+            <version>${elephant.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ipukr.elephant</groupId>
+            <artifactId>elephant-common</artifactId>
+            <version>${elephant.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.ipukr.elephant</groupId>
+            <artifactId>elephant-httpclient</artifactId>
+            <version>${elephant.version}</version>
+        </dependency>
+
+        <!-- excel poi包 -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.9</version>
+        </dependency>
+
+
+
+
+        <!--============================== 开发工具集合 ==============================-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.20</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- 支持Swagger测试API-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
+        <dependency>
+            <!-- jsoup HTML parser library @ https://jsoup.org/ -->
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.11.3</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>bees-tops</finalName>
+        <resources>
+            <!-- Mybatis XML文件扫描-->
+            <!-- 正式资源文件扫描-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <!--<excludes>-->
+                    <!--<exclude>**/*.ttf</exclude>-->
+                    <!--<exclude>**/*.woff</exclude>-->
+                <!--</excludes>-->
+                <filtering>false</filtering>
+            </resource>
+            <!-- Mybatis XML文件扫描-->
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <includes>
+                    <include>*.yml</include>
+                </includes>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+        <plugins>
+            <!--============================== Spring Boot 打包插件 ==============================-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration><!-- 指定该Main Class为全局的唯一入口 -->
+                    <mainClass>com.delai.bees.tops.BootServer</mainClass>
+                    <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
+                    <layout>ZIP</layout>
+                    <fork>true</fork>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--============================== mybatis自动生成代码插件 ==============================-->
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.7</version>
+                <configuration>
+                    <configurationFile>${basedir}/src/test/resources/generatorConfig.xml</configurationFile>
+                    <outputDirectory>${basedir}/src/main/java</outputDirectory>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                </configuration>
+                <dependencies>
+                    <!-- 钚氪 Mybatis Generator 插件  -->
+                    <dependency>
+                        <groupId>com.ipukr.elephant</groupId>
+                        <artifactId>elephant-mybatis-plugin</artifactId>
+                        <version>2.4.0</version>
+                    </dependency>
+                    <!-- MySQL依赖  -->
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>5.1.39</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <!--============================== docker 镜像打包插件 ==============================-->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <configuration>
+                    <!-- 注意imageName一定要是符合正则[a-z0-9-_.]的，否则构建不会成功 -->
+                    <!-- 详见：https://github.com/spotify/docker-maven-plugin Invalid repository
+                        name ... only [a-z0-9-_.] are allowed -->
+                    <!-- 如果要将docker镜像push到DockerHub上去的话，这边的路径要和repo路径一致 -->
+                    <imageName>registry.ipukr.cn/delai/${project.build.finalName}</imageName>
+                    <forceTags>true</forceTags>
+                    <imageTags>
+                        <imageTag>${project.version}</imageTag>
+                    </imageTags>
+                    <!--
+                        A：指定Dockerfile所在的路径方式构建镜像
+                        <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                    -->
+                    <!--
+                        B：配置方式构建镜像
+                    -->
+                    <baseImage>openjdk:8</baseImage>
+                    <maintainer>https://jira.ipukr.cn wmw@ipukr.cn</maintainer>
+                    <cmd>["ln", "-sf", "/usr/share/zoneinfo/Asia/Shanghai", "/etc/localtime"]</cmd>
+                    <cmd>["echo", "Asia/Shanghai", ">", "/etc/timezone"]</cmd>
+                    <cmd>["date"]</cmd>
+                    <cmd>["java", "-version"]</cmd>
+                    <entryPoint>["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <!--
+                        拷贝资源文件到路径（A方式的dockerDirectory路径，或B方式的容器路径）
+                    -->
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                        <resource>
+                            <targetPath>/.h2/</targetPath>
+                            <directory>${project.build.outputDirectory}/hsql/</directory>
+                            <include>testdb.*</include>
+                        </resource>
+                    </resources>
+                    <!-- 以下两行是为了docker push到DockerHub使用的。 -->
+                    <serverId>ipukr_registry</serverId>
+                    <registryUrl>registry.ipukr.cn</registryUrl>
+                </configuration>
+            </plugin>
+            <!--============================== assembly 自动打包 zip 安装包 ==============================-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.2.1</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>ipukr_repo</id>
+            <url>https://repo.ipukr.cn/nexus/content/groups/develop/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <distributionManagement>
+        <repository>
+            <id>ipukr_repo</id>
+            <name>Nexus Releases Repository</name>
+            <url>https://repo.ipukr.cn/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>ipukr_repo</id>
+            <name>Nexus Snapshots Repository</name>
+            <url>https://repo.ipukr.cn/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>ipukr_repo</id>
+            <name>Nexus</name>
+            <url>https://repo.ipukr.cn/nexus/content/groups/develop/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

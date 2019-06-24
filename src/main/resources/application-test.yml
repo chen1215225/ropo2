@@ -1,0 +1,49 @@
+server:
+  port: 8080
+
+logging:
+  level.org.springframework: INFO
+  level.com.delai.bees.tops: DEBUG
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://10.110.77.170:3306/bees_tops?useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: root123!
+  data:
+    mongodb.host: 10.99.92.229
+    mongodb.port: 27017
+    mongodb.authentication-database:
+    mongodb.database: SignalDB
+    mongodb.username:
+    mongodb.password:
+    mongodb.prepare.maxConnectionIdleTime: 60000
+    mongodb.prepare.maxConnectionLifeTime: 0
+    mongodb.prepare.socketKeepAlive: true
+    mongodb.prepare.socketTimeout: 1500
+
+mybatis:
+  mapper-locations: classpath:com/delai/bees/tops/dao/mapper/*.xml, classpath:com/delai/bees/tops/dao/helper/*.xml
+  type-aliases-package: com.delai.bees.tops.entity,
+
+setting.swagger.enable: true
+# setting.swagger.host: outsource.ipukr.cn/lineview/bees-tops
+setting.web.cors.enable: true
+#setting.mybatis.paginator.dialect: com.github.miemiedev.mybatis.paginator.dialect.MySQLDialect
+
+# LineView 地址
+setting.lineview.address: 132.147.177.190
+# 弃用
+setting.lineview.machine.ids: ﻿dc651c94-3ebb-4e73-84ca-45fe64ddfec8
+# 弃用
+setting.lineview.machine.signal.product.ids: ﻿f0023513-7849-4f88-9fa4-4e591e2f497e
+# 注入机ID
+setting.lineview.implanter.id: 7105b59f-575a-4bcc-9434-769725a253e8
+# 注入机产量信号ID
+setting.lineview.implanter.product.id: 96a0fd66-6616-4304-a270-cfcb11912577
+# 吹瓶机产量信号ID
+setting.lineview.bottle_blowing.product.id: 2a1f9156-5a48-4b88-bc5f-983b36f6c2e7
+# 码垛机产量信号ID
+setting.lineview.stacker.product.id: e48d81b2-4cf7-42ac-a67f-9d9c502219f5

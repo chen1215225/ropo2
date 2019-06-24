@@ -1,0 +1,16 @@
+<service>
+    <id>Delai_Bees_Tops</id>
+    <name>Delai_Bees_Tops</name>
+    <description>Delai_Bees_Tops</description>
+    <env name="MYAPP_HOME" value="%BASE%"/>
+    <executable>java</executable>
+    <arguments>-Duser.timezone=Asia/Shanghai -Dfile.encoding=utf-8 -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=prod -jar "%BASE%\bees-tops.jar"</arguments>
+    <logmode>rotate</logmode>
+</service>
+
+
+
+
+
+
+

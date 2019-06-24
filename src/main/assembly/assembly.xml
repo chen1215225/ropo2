@@ -1,0 +1,39 @@
+<assembly>
+    <id>bin</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+
+    <fileSets>
+        <!-- 拷贝target/*.jar 至 压缩文件 -->
+        <fileSet>
+            <directory>target</directory>
+            <includes>
+                <include>*.jar</include>
+            </includes>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+
+        <!-- 拷贝hsql目录 至 压缩文件 -->
+        <fileSet>
+            <directory>hsql</directory>
+            <outputDirectory>/hsql</outputDirectory>
+        </fileSet>
+
+        <!-- 拷贝bin目录 至 压缩文件 -->
+        <fileSet>
+            <directory>src/main/assembly/bin</directory>
+            <outputDirectory>/bin</outputDirectory>
+        </fileSet>
+
+        <!-- 拷贝执行文件 至 压缩文件-->
+        <fileSet>
+            <directory>src/main/assembly/</directory>
+            <includes>
+                <include>Delai_Bees_Tops.exe</include>
+                <include>Delai_Bees_Tops.xml</include>
+            </includes>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+    </fileSets>
+</assembly>
