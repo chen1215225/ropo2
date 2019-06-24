@@ -15,6 +15,7 @@ import java.util.List;
  * @author ryan wu
  * <p>
  * Created by ryan wu on 2018/9/16.
+ *
  */
 
 public interface AnalogSignalRepository extends PagingAndSortingRepository<AnalogSignal, String> {
